@@ -1,23 +1,30 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+  <v-app id="inspire">
+    <div id="app">
+      <page-header />
+      <!-- <img src="./assets/logo.png"> -->
+      <router-view />
+    </div>
+  </v-app>
 </template>
 
 <script>
+import PageHeader from "./components/Header";
+
 export default {
-  name: 'App'
-}
+  name: "App",
+  components: {
+    PageHeader,
+  }
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
