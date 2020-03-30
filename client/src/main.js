@@ -6,7 +6,9 @@ import router from './router'
 import vuetify from './plugins/vuetify' // path to vuetify export
 import {sync} from 'vuex-router-sync'
 import store from '../src/store/store'
+import vueYoutube from 'vue-youtube-embed'
 
+Vue.use(vueYoutube)
 Vue.config.productionTip = false
 
 const opts = {}
@@ -14,6 +16,7 @@ const opts = {}
 /* eslint-disable no-new */
 new Vue({
   vuetify,
+  vueYoutube,
   el: '#app',
   router,
   store,

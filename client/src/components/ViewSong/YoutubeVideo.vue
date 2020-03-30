@@ -1,13 +1,18 @@
 <template>
-  <panel title="Video de Youtube">
-      {{youtubeId}}
+  <panel title="Video">
+    <youtube 
+    :video-id="videoId"
+    :player-height=243
+    :player-width=400
+    ></youtube>
   </panel>
 </template>
 
 <script>
 import Panel from "../../components/Panel";
+
 export default {
-  props: ["youtubeId"],
+  props: ["video-id"],
   components: {
     Panel
   }
@@ -15,12 +20,5 @@ export default {
 </script>
 
 <style scoped>
-.song-container {
-  margin-top: 20px;
-  overflow: hidden;
-}
 
-.song-artist {
-  font-size: 24px;
-}
 </style>

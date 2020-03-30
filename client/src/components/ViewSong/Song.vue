@@ -6,20 +6,22 @@
           <song-metadata :song="song" />
         </v-flex>
         <v-flex xs6>
-          <youtube-video class="ml-4" :youtubeId="song.youtube_id" />
+          <youtube-video class="ml-5" :videoId="song.youtube_id" />
         </v-flex>
       </v-layout>
     </v-container>
     <v-container fluid>
       <v-layout>
-        <v-flex xs6 >
-          <panel v-if="song.tab" class="panel mb-5" title="Tab">
+        <v-flex xs6>
+          <panel v-if="song.tab" class="panel; mb-5" title="Tab">
             <textarea>{{song.tab}}</textarea>
           </panel>
           <panel v-else class="panelNoContent mb-5" title="Tab">
             <div class="textareaNoContent">No disponible</div>
           </panel>
-          <panel v-if="song.lyrics" class="panel" title="Letra">
+        </v-flex>
+        <v-flex xs6>
+          <panel v-if="song.lyrics" class="panel; ml-5" title="Letra">
             <textarea>{{song.lyrics}}</textarea>
           </panel>
           <panel v-else class="panelNoContent mb-5" title="Letra">
@@ -51,7 +53,6 @@ export default {
     try {
       const song_id = this.$route.params.song_id;
       this.song = (await SongsService.listSong(song_id)).data;
-      console.log(this.song);
     } catch (error) {
       console.log(error);
     }
@@ -73,6 +74,10 @@ export default {
   font-size: 24px;
 }
 
+.panel {
+  height: 600px;
+}
+
 textarea {
   height: 520px;
   border: none;
@@ -92,10 +97,6 @@ textarea {
   overflow: auto;
   padding: 40px;
   width: 100%;
-}
-
-.panel {
-  height: 600px;
 }
 
 .panelNoContent {
